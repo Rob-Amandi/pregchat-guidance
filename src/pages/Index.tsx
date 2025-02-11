@@ -1,5 +1,4 @@
-
-import { Heart, Baby, Calendar, Book, LogOut } from "lucide-react";
+import { Stethoscope, Baby, Sparkles, Apple, LogOut } from "lucide-react";
 import PregnancyCard from "@/components/PregnancyCard";
 import ChatInterface from "@/components/ChatInterface";
 import { Button } from "@/components/ui/button";
@@ -96,7 +95,7 @@ const Index = () => {
     {
       title: "Health Preparation",
       description: categoryDescriptions[currentLanguage]['Health Preparation'],
-      icon: <Heart className="w-6 h-6 text-primary" />,
+      icon: <Stethoscope className="w-6 h-6 text-pink-400" />,
       content: guideContent
         .filter(item => item.category === "Health Preparation")
         .map(item => ({ title: item.title, content: item.content })),
@@ -104,7 +103,7 @@ const Index = () => {
     {
       title: "Fertility Awareness",
       description: categoryDescriptions[currentLanguage]['Fertility Awareness'],
-      icon: <Calendar className="w-6 h-6 text-primary" />,
+      icon: <Sparkles className="w-6 h-6 text-purple-400" />,
       content: guideContent
         .filter(item => item.category === "Fertility Awareness")
         .map(item => ({ title: item.title, content: item.content })),
@@ -112,7 +111,7 @@ const Index = () => {
     {
       title: "Nutrition Guide",
       description: categoryDescriptions[currentLanguage]['Nutrition Guide'],
-      icon: <Book className="w-6 h-6 text-primary" />,
+      icon: <Apple className="w-6 h-6 text-green-400" />,
       content: guideContent
         .filter(item => item.category === "Nutrition Guide")
         .map(item => ({ title: item.title, content: item.content })),
@@ -120,7 +119,7 @@ const Index = () => {
     {
       title: "Lifestyle Changes",
       description: categoryDescriptions[currentLanguage]['Lifestyle Changes'],
-      icon: <Baby className="w-6 h-6 text-primary" />,
+      icon: <Baby className="w-6 h-6 text-blue-400" />,
       content: guideContent
         .filter(item => item.category === "Lifestyle Changes")
         .map(item => ({ title: item.title, content: item.content })),
@@ -132,22 +131,24 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-accent/30 to-background p-6">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-6">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold text-gray-800">PregnancyGuide</h1>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
+            PregnancyGuide
+          </h1>
           <div className="flex items-center gap-4">
             <LanguageSelector
               currentLanguage={currentLanguage}
               onLanguageChange={handleLanguageChange}
             />
             {user ? (
-              <Button variant="outline" onClick={handleLogout}>
+              <Button variant="outline" onClick={handleLogout} className="hover:bg-pink-50">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
             ) : (
-              <Button variant="outline" onClick={() => navigate("/auth")}>
+              <Button variant="outline" onClick={() => navigate("/auth")} className="hover:bg-pink-50">
                 Login
               </Button>
             )}
@@ -155,14 +156,14 @@ const Index = () => {
         </div>
 
         <section className="text-center space-y-4 animate-fade-in">
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             {currentLanguage === 'en' 
               ? "Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support."
               : "Din omfattande guide för att förbereda graviditet, med expertråd och personligt stöd."}
           </p>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in-up">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
           {categories.map((category, index) => (
             <PregnancyCard
               key={index}
@@ -175,10 +176,10 @@ const Index = () => {
         </section>
 
         <section className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-semibold text-center text-gray-800">
+          <h2 className="text-3xl font-semibold text-center bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
             {currentLanguage === 'en' ? "Ask Your Questions" : "Ställ Dina Frågor"}
           </h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             {currentLanguage === 'en'
               ? "Get personalized answers to your pre-pregnancy questions from our AI assistant."
               : "Få personliga svar på dina frågor om graviditet från vår AI-assistent."}
