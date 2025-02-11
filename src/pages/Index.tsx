@@ -7,6 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
+import { useQuery } from "@tanstack/react-query";
+
+interface ContentItem {
+  title: string;
+  content: string;
+}
+
+interface Category {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  content?: ContentItem[];
+}
 
 const Index = () => {
   const navigate = useNavigate();
@@ -27,6 +40,26 @@ const Index = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  const { data: guideContent = [] } = useQuery({
+    queryKey: ['pregnancyGuideContent'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('pregnancy_guide_content')
+        .select('*');
+      
+      if (error) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed to load content. Please try again later.",
+        });
+        return [];
+      }
+      
+      return data;
+    },
+  });
+
   const handleLogout = async () => {
     try {
       const { error } = await supabase.auth.signOut();
@@ -41,26 +74,38 @@ const Index = () => {
     }
   };
 
-  const categories = [
+  const categories: Category[] = [
     {
       title: "Health Preparation",
       description: "Essential health tips and lifestyle changes to prepare for pregnancy.",
       icon: <Heart className="w-6 h-6 text-primary" />,
+      content: guideContent
+        .filter(item => item.category === "Health Preparation")
+        .map(item => ({ title: item.title, content: item.content })),
     },
     {
       title: "Fertility Awareness",
       description: "Understanding your fertility cycle and optimal conception timing.",
       icon: <Calendar className="w-6 h-6 text-primary" />,
+      content: guideContent
+        .filter(item => item.category === "Fertility Awareness")
+        .map(item => ({ title: item.title, content: item.content })),
     },
     {
       title: "Nutrition Guide",
       description: "Recommended nutrients and dietary guidelines for pre-pregnancy.",
       icon: <Book className="w-6 h-6 text-primary" />,
+      content: guideContent
+        .filter(item => item.category === "Nutrition Guide")
+        .map(item => ({ title: item.title, content: item.content })),
     },
     {
       title: "Lifestyle Changes",
       description: "Important lifestyle modifications to enhance fertility and pregnancy readiness.",
       icon: <Baby className="w-6 h-6 text-primary" />,
+      content: guideContent
+        .filter(item => item.category === "Lifestyle Changes")
+        .map(item => ({ title: item.title, content: item.content })),
     },
   ];
 
@@ -94,6 +139,7 @@ const Index = () => {
               title={category.title}
               description={category.description}
               icon={category.icon}
+              content={category.content}
             />
           ))}
         </section>
