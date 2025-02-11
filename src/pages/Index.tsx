@@ -1,9 +1,46 @@
 
-import { Heart, Baby, Calendar, Book } from "lucide-react";
+import { Heart, Baby, Calendar, Book, LogOut } from "lucide-react";
 import PregnancyCard from "@/components/PregnancyCard";
 import ChatInterface from "@/components/ChatInterface";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user || null);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      navigate("/auth");
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message,
+      });
+    }
+  };
+
   const categories = [
     {
       title: "Health Preparation",
@@ -30,8 +67,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-accent/30 to-background p-6">
       <div className="max-w-6xl mx-auto space-y-12">
-        <section className="text-center space-y-4 animate-fade-in">
+        <div className="flex justify-between items-center">
           <h1 className="text-4xl font-bold text-gray-800">PregnancyGuide</h1>
+          {user ? (
+            <Button variant="outline" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
+            </Button>
+          ) : (
+            <Button variant="outline" onClick={() => navigate("/auth")}>
+              Login
+            </Button>
+          )}
+        </div>
+
+        <section className="text-center space-y-4 animate-fade-in">
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
           </p>
