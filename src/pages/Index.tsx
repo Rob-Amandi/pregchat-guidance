@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import LanguageSelector from "@/components/LanguageSelector";
+import { motion } from "framer-motion";
 
 interface ContentItem {
   title: string;
@@ -133,59 +134,106 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-6">
       <div className="max-w-6xl mx-auto space-y-12">
-        <div className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-between items-center"
+        >
+          <motion.h1 
+            className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             PregnancyGuide
-          </h1>
+          </motion.h1>
           <div className="flex items-center gap-4">
             <LanguageSelector
               currentLanguage={currentLanguage}
               onLanguageChange={handleLanguageChange}
             />
             {user ? (
-              <Button variant="outline" onClick={handleLogout} className="hover:bg-pink-50">
-                <LogOut className="h-4 w-4 mr-2" />
+              <Button 
+                variant="outline" 
+                onClick={handleLogout} 
+                className="hover:bg-pink-50 transition-colors duration-300"
+              >
+                <motion.div
+                  whileHover={{ rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                </motion.div>
                 Logout
               </Button>
             ) : (
-              <Button variant="outline" onClick={() => navigate("/auth")} className="hover:bg-pink-50">
+              <Button 
+                variant="outline" 
+                onClick={() => navigate("/auth")} 
+                className="hover:bg-pink-50 transition-colors duration-300"
+              >
                 Login
               </Button>
             )}
           </div>
-        </div>
+        </motion.div>
 
-        <section className="text-center space-y-4 animate-fade-in">
+        <motion.section 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          className="text-center space-y-4"
+        >
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             {currentLanguage === 'en' 
               ? "Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support."
               : "Din omfattande guide för att förbereda graviditet, med expertråd och personligt stöd."}
           </p>
-        </section>
+        </motion.section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in-up">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {categories.map((category, index) => (
-            <PregnancyCard
+            <motion.div
               key={index}
-              title={category.title}
-              description={category.description}
-              icon={category.icon}
-              content={category.content}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <PregnancyCard
+                title={category.title}
+                description={category.description}
+                icon={category.icon}
+                content={category.content}
+              />
+            </motion.div>
           ))}
-        </section>
+        </motion.section>
 
-        <section className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-semibold text-center bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="space-y-6"
+        >
+          <motion.h2 
+            className="text-3xl font-semibold text-center bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             {currentLanguage === 'en' ? "Ask Your Questions" : "Ställ Dina Frågor"}
-          </h2>
+          </motion.h2>
           <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             {currentLanguage === 'en'
               ? "Get personalized answers to your pre-pregnancy questions from our AI assistant."
               : "Få personliga svar på dina frågor om graviditet från vår AI-assistent."}
           </p>
           <ChatInterface />
-        </section>
+        </motion.section>
       </div>
     </div>
   );
