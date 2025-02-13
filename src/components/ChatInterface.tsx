@@ -6,6 +6,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 
 interface Message {
   content: string;
@@ -16,22 +18,35 @@ const ChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isLoading) return;
 
     const userMessage = { content: input, isUser: true };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
 
-    // Here we'll add the actual GPT integration later
-    const response = { content: "This feature will be implemented soon!", isUser: false };
-    
-    setTimeout(() => {
-      setMessages((prev) => [...prev, response]);
+    try {
+      const { data, error } = await supabase.functions.invoke('chat-completion', {
+        body: { message: input }
+      });
+
+      if (error) throw error;
+
+      const assistantMessage = { content: data.reply, isUser: false };
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to get a response. Please try again.",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -57,11 +72,19 @@ const ChatInterface = () => {
             </motion.div>
           ))}
           {isLoading && (
-            <div className="text-left mb-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-left mb-4"
+            >
               <div className="inline-block p-3 rounded-lg bg-secondary text-secondary-foreground">
-                Thinking...
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full"
+                />
               </div>
-            </div>
+            </motion.div>
           )}
         </ScrollArea>
         <div className="p-4 border-t">
@@ -72,8 +95,13 @@ const ChatInterface = () => {
               placeholder="Ask your pregnancy-related question..."
               onKeyPress={(e) => e.key === "Enter" && handleSend()}
               className="flex-1"
+              disabled={isLoading}
             />
-            <Button onClick={handleSend} className="bg-primary hover:bg-primary-hover">
+            <Button 
+              onClick={handleSend} 
+              className="bg-primary hover:bg-primary/90 transition-colors"
+              disabled={isLoading}
+            >
               <Send className="h-4 w-4" />
             </Button>
           </div>
