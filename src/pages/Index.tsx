@@ -1,3 +1,4 @@
+
 import { Stethoscope, Baby, Sparkles, Apple, LogOut } from "lucide-react";
 import PregnancyCard from "@/components/PregnancyCard";
 import ChatInterface from "@/components/ChatInterface";
@@ -28,12 +29,6 @@ const categoryDescriptions = {
     'Fertility Awareness': 'Understanding your fertility cycle and optimal conception timing.',
     'Nutrition Guide': 'Recommended nutrients and dietary guidelines for pre-pregnancy.',
     'Lifestyle Changes': 'Important lifestyle modifications to enhance fertility and pregnancy readiness.',
-  },
-  sv: {
-    'Health Preparation': 'Viktiga hälsotips och livsstilsförändringar för att förbereda graviditet.',
-    'Fertility Awareness': 'Förstå din fertilitetscykel och optimal tid för befruktning.',
-    'Nutrition Guide': 'Rekommenderade näringsämnen och kostråd före graviditet.',
-    'Lifestyle Changes': 'Viktiga livsstilsförändringar för att förbättra fertilitet och graviditetsberedskap.',
   }
 };
 
@@ -185,9 +180,7 @@ const Index = () => {
           className="text-center space-y-4"
         >
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            {currentLanguage === 'en' 
-              ? "Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support."
-              : "Din omfattande guide för att förbereda graviditet, med expertråd och personligt stöd."}
+            Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
           </p>
         </motion.section>
 
@@ -225,12 +218,10 @@ const Index = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            {currentLanguage === 'en' ? "Ask Your Questions" : "Ställ Dina Frågor"}
+            Ask Your Questions
           </motion.h2>
           <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-            {currentLanguage === 'en'
-              ? "Get personalized answers to your pre-pregnancy questions from our AI assistant."
-              : "Få personliga svar på dina frågor om graviditet från vår AI-assistent."}
+            Get personalized answers to your pre-pregnancy questions from our AI assistant.
           </p>
           <ChatInterface />
         </motion.section>

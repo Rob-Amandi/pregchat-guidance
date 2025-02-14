@@ -13,7 +13,6 @@ interface LanguageSelectorProps {
 
 const languages: LanguageOption[] = [
   { code: 'en', label: 'English' },
-  { code: 'sv', label: 'Svenska' },
 ];
 
 const LanguageSelector = ({ currentLanguage, onLanguageChange }: LanguageSelectorProps) => {
