@@ -69,8 +69,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <div className="min-h-screen bg-[#FDF8F0] p-6">
+      <div className="max-w-5xl mx-auto space-y-16">
         <Header 
           user={user}
           currentLanguage={currentLanguage}
@@ -82,9 +82,9 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="text-center space-y-4"
+          className="text-center space-y-4 mt-12"
         >
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed font-light">
             Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
           </p>
         </motion.section>
@@ -98,16 +98,16 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="space-y-6"
+          className="space-y-8 pb-16"
         >
           <motion.h2 
-            className="text-3xl font-semibold text-center bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+            className="text-2xl font-light text-center text-gray-800"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             Ask Your Questions
           </motion.h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-center text-gray-600 max-w-xl mx-auto mb-8 leading-relaxed font-light">
             Get personalized answers to your pre-pregnancy questions from our AI assistant.
           </p>
           <ChatInterface />
