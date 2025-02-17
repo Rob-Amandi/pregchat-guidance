@@ -23,7 +23,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
       className="flex justify-between items-center"
     >
       <motion.h1 
-        className="text-4xl font-light text-gray-800"
+        className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -38,7 +38,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
           <Button 
             variant="outline" 
             onClick={onLogout} 
-            className="hover:bg-white/50 transition-colors duration-300"
+            className="hover:bg-pink-50 transition-colors duration-300"
           >
             <motion.div
               whileHover={{ rotate: 90 }}
@@ -52,7 +52,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
           <Button 
             variant="outline" 
             onClick={() => navigate("/auth")} 
-            className="hover:bg-white/50 transition-colors duration-300"
+            className="hover:bg-pink-50 transition-colors duration-300"
           >
             Login
           </Button>
