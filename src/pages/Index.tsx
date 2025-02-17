@@ -88,13 +88,17 @@ const Index = () => {
           transition={{ duration: 0.7 }}
           className="text-center space-y-4"
         >
-          <div className="w-32 h-32 mx-auto mb-8">
+          <motion.div 
+            className="w-40 h-40 mx-auto mb-8"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <img 
-              src="/placeholder.svg" 
-              alt="Decorative illustration" 
-              className="w-full h-full object-cover rounded-full shadow-lg"
+              src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+              alt="PregnancyGuide Logo" 
+              className="w-full h-full object-contain"
             />
-          </div>
+          </motion.div>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
           </p>
@@ -112,7 +116,7 @@ const Index = () => {
           className="space-y-6"
         >
           <motion.h2 
-            className="text-3xl font-semibold text-center bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+            className="text-3xl font-semibold text-center bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >

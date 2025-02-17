@@ -22,13 +22,20 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
       transition={{ duration: 0.5 }}
       className="flex justify-between items-center"
     >
-      <motion.h1 
-        className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+      <motion.div 
+        className="flex items-center gap-3"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        PregnancyGuide
-      </motion.h1>
+        <img 
+          src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+          alt="PregnancyGuide Logo" 
+          className="h-12 w-12"
+        />
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
+          PregnancyGuide
+        </h1>
+      </motion.div>
       <div className="flex items-center gap-4">
         <LanguageSelector
           currentLanguage={currentLanguage}
