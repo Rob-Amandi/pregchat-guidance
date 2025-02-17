@@ -69,64 +69,83 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
       <div 
-        className="fixed inset-0 opacity-10 z-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url("/placeholder.svg")' }}
+        className="fixed inset-0 opacity-5 z-0 bg-cover bg-center blur-sm"
+        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop")' }}
       />
-      <div className="max-w-6xl mx-auto space-y-12 relative z-10">
-        <Header 
-          user={user}
-          currentLanguage={currentLanguage}
-          onLanguageChange={handleLanguageChange}
-          onLogout={handleLogout}
-        />
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+          <Header 
+            user={user}
+            currentLanguage={currentLanguage}
+            onLanguageChange={handleLanguageChange}
+            onLogout={handleLogout}
+          />
 
-        <motion.section 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          className="text-center space-y-4"
-        >
-          <motion.div 
-            className="w-40 h-40 mx-auto mb-8"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+          <motion.section 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="text-center space-y-8 py-12"
           >
-            <img 
-              src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
-              alt="PregnancyGuide Logo" 
-              className="w-full h-full object-contain"
-            />
+            <motion.div 
+              className="w-48 h-48 mx-auto mb-12"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img 
+                src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+                alt="PregnancyGuide Logo" 
+                className="w-full h-full object-contain drop-shadow-xl"
+              />
+            </motion.div>
+            <div className="max-w-3xl mx-auto space-y-6">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
+                Welcome to PregnancyGuide
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
+              </p>
+            </div>
+          </motion.section>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative py-12"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl opacity-50" />
+            <div className="relative p-8">
+              <CategoryGrid 
+                guideContent={guideContent}
+                currentLanguage={currentLanguage}
+              />
+            </div>
           </motion.div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
-          </p>
-        </motion.section>
 
-        <CategoryGrid 
-          guideContent={guideContent}
-          currentLanguage={currentLanguage}
-        />
-
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="space-y-6"
-        >
-          <motion.h2 
-            className="text-3xl font-semibold text-center bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+          <motion.section 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="space-y-8 py-12 bg-white/50 backdrop-blur-sm rounded-3xl shadow-lg p-8"
           >
-            Ask Your Questions
-          </motion.h2>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Get personalized answers to your pre-pregnancy questions from our AI assistant.
-          </p>
-          <ChatInterface />
-        </motion.section>
+            <div className="max-w-3xl mx-auto text-center space-y-4">
+              <motion.h2 
+                className="text-3xl font-semibold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                Ask Your Questions
+              </motion.h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Get personalized answers to your pre-pregnancy questions from our AI assistant.
+              </p>
+            </div>
+            <ChatInterface />
+          </motion.section>
+        </div>
       </div>
     </div>
   );
