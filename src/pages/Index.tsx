@@ -84,17 +84,6 @@ const Index = () => {
             transition={{ duration: 0.7 }}
             className="text-center space-y-8 py-12"
           >
-            <motion.div 
-              className="w-48 h-48 mx-auto mb-12"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <img 
-                src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
-                alt="PregnancyGuide Logo" 
-                className="w-full h-full object-contain drop-shadow-xl"
-              />
-            </motion.div>
             <div className="max-w-3xl mx-auto space-y-6">
               <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
                 Welcome to PregnancyGuide
