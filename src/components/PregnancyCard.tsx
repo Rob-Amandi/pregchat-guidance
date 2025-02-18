@@ -32,7 +32,7 @@ const PregnancyCard = ({ title, description, icon, content }: PregnancyCardProps
       <Card 
         className={`
           transform transition-all duration-300 
-          bg-[#FDF8F0] border-[#E6E6FA] backdrop-blur-sm
+          bg-white border-[#E6E6FA]
           ${isHovered ? 'shadow-lg border-opacity-50 scale-[1.02]' : 'shadow-sm hover:shadow-md border-opacity-30'}
         `}
       >
@@ -40,7 +40,7 @@ const PregnancyCard = ({ title, description, icon, content }: PregnancyCardProps
           <motion.div 
             animate={{ rotate: isHovered ? 360 : 0 }}
             transition={{ duration: 0.5 }}
-            className="p-3 bg-white/50 rounded-full"
+            className="p-3 bg-[#FDF8F0] rounded-full"
           >
             {icon}
           </motion.div>
@@ -58,7 +58,7 @@ const PregnancyCard = ({ title, description, icon, content }: PregnancyCardProps
                 className={`
                   w-full flex items-center justify-between p-2
                   transition-colors duration-300 ease-in-out font-light
-                  ${isHovered ? 'bg-white/50' : 'hover:bg-white/30'}
+                  ${isHovered ? 'bg-[#FDF8F0]' : 'hover:bg-[#FDF8F0]/50'}
                 `}
                 onClick={() => setIsExpanded(!isExpanded)}
               >
