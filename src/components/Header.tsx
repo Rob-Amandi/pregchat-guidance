@@ -29,11 +29,11 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
       >
         <img 
           src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
-          alt="PregnancyGuide Logo" 
+          alt="Pre-PregnancyGuide Logo" 
           className="h-12 w-12"
         />
         <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
-          PregnancyGuide
+          Pre-PregnancyGuide
         </h1>
       </motion.div>
       <div className="flex items-center gap-4">

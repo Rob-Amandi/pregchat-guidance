@@ -1,3 +1,4 @@
+
 import ChatInterface from "@/components/ChatInterface";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -86,7 +87,7 @@ const Index = () => {
           >
             <div className="max-w-3xl mx-auto space-y-6">
               <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
-                Welcome to PregnancyGuide
+                Welcome to Pre-PregnancyGuide
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
