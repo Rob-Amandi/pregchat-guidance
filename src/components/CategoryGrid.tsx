@@ -26,6 +26,12 @@ const categoryDescriptions = {
     'Fertility Awareness': 'Understanding your fertility cycle and optimal conception timing.',
     'Nutrition Guide': 'Recommended nutrients and dietary guidelines for pre-pregnancy.',
     'Lifestyle Changes': 'Important lifestyle modifications to enhance fertility and pregnancy readiness.',
+  },
+  sv: {
+    'Health Preparation': 'Viktiga hälsoråd och livsstilsförändringar för att förbereda graviditet.',
+    'Fertility Awareness': 'Förstå din fertilitetscykel och optimal tid för befruktning.',
+    'Nutrition Guide': 'Rekommenderade näringsämnen och kostråd inför graviditet.',
+    'Lifestyle Changes': 'Viktiga livsstilsförändringar för att förbättra fertilitet och graviditetsberedskap.',
   }
 };
 
@@ -33,7 +39,7 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
   const categories: Category[] = [
     {
       title: "Health Preparation",
-      description: categoryDescriptions[currentLanguage]['Health Preparation'],
+      description: categoryDescriptions[currentLanguage]?.['Health Preparation'] || categoryDescriptions['en']['Health Preparation'],
       icon: <Stethoscope className="w-6 h-6 text-pink-400" />,
       content: guideContent
         .filter(item => item.category === "Health Preparation")
@@ -41,7 +47,7 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
     },
     {
       title: "Fertility Awareness",
-      description: categoryDescriptions[currentLanguage]['Fertility Awareness'],
+      description: categoryDescriptions[currentLanguage]?.['Fertility Awareness'] || categoryDescriptions['en']['Fertility Awareness'],
       icon: <Sparkles className="w-6 h-6 text-purple-400" />,
       content: guideContent
         .filter(item => item.category === "Fertility Awareness")
@@ -49,7 +55,7 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
     },
     {
       title: "Nutrition Guide",
-      description: categoryDescriptions[currentLanguage]['Nutrition Guide'],
+      description: categoryDescriptions[currentLanguage]?.['Nutrition Guide'] || categoryDescriptions['en']['Nutrition Guide'],
       icon: <Apple className="w-6 h-6 text-green-400" />,
       content: guideContent
         .filter(item => item.category === "Nutrition Guide")
@@ -57,7 +63,7 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
     },
     {
       title: "Lifestyle Changes",
-      description: categoryDescriptions[currentLanguage]['Lifestyle Changes'],
+      description: categoryDescriptions[currentLanguage]?.['Lifestyle Changes'] || categoryDescriptions['en']['Lifestyle Changes'],
       icon: <Baby className="w-6 h-6 text-blue-400" />,
       content: guideContent
         .filter(item => item.category === "Lifestyle Changes")
