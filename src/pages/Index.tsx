@@ -72,7 +72,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#FDF8F0]">
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-8">
           <Header 
             user={user}
             currentLanguage={currentLanguage}
@@ -84,9 +84,9 @@ const Index = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
-            className="text-center space-y-8 py-12"
+            className="text-center space-y-4 py-6"
           >
-            <div className="max-w-3xl mx-auto space-y-6">
+            <div className="max-w-3xl mx-auto space-y-4">
               <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
@@ -102,30 +102,30 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white/80 rounded-xl shadow-md"
+                className="p-4 bg-white/80 rounded-xl shadow-md"
               >
-                <BookOpen className="w-8 h-8 text-teal-500 mx-auto mb-4" />
+                <BookOpen className="w-8 h-8 text-teal-500 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold mb-2">Expert Resources</h3>
                 <p className="text-gray-600">Access comprehensive guides and articles about pre-pregnancy preparation.</p>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white/80 rounded-xl shadow-md"
+                className="p-4 bg-white/80 rounded-xl shadow-md"
               >
-                <MessageCircle className="w-8 h-8 text-pink-400 mx-auto mb-4" />
+                <MessageCircle className="w-8 h-8 text-pink-400 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold mb-2">AI Support</h3>
                 <p className="text-gray-600">Get instant answers to your questions from our AI assistant.</p>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white/80 rounded-xl shadow-md"
+                className="p-4 bg-white/80 rounded-xl shadow-md"
               >
-                <Sparkles className="w-8 h-8 text-purple-500 mx-auto mb-4" />
+                <Sparkles className="w-8 h-8 text-purple-500 mx-auto mb-3" />
                 <h3 className="text-lg font-semibold mb-2">Personalized Journey</h3>
                 <p className="text-gray-600">Follow a customized path to prepare for your pregnancy journey.</p>
               </motion.div>
@@ -136,7 +136,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative py-12"
+            className="relative py-6"
           >
             <CategoryGrid 
               guideContent={guideContent}
@@ -148,9 +148,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="space-y-8 py-12 bg-white/50 rounded-3xl shadow-lg p-8"
+            className="space-y-4 py-6 bg-white/50 rounded-3xl shadow-lg p-6"
           >
-            <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="max-w-3xl mx-auto text-center space-y-3">
               <motion.h2 
                 className="text-3xl font-semibold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text"
                 whileHover={{ scale: 1.05 }}
