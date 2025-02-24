@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import CategoryGrid from "@/components/CategoryGrid";
+import { Sparkles, BookOpen, MessageCircle } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -86,12 +87,48 @@ const Index = () => {
             className="text-center space-y-8 py-12"
           >
             <div className="max-w-3xl mx-auto space-y-6">
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
-                Welcome to Pre-PregnancyGuide
-              </h2>
+              <motion.div
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text inline-flex items-center gap-2">
+                  Welcome to Pre-PregnancyGuide
+                  <Sparkles className="inline-block text-pink-400" />
+                </h2>
+              </motion.div>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="p-6 bg-white/80 rounded-xl shadow-md"
+              >
+                <BookOpen className="w-8 h-8 text-teal-500 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Expert Resources</h3>
+                <p className="text-gray-600">Access comprehensive guides and articles about pre-pregnancy preparation.</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="p-6 bg-white/80 rounded-xl shadow-md"
+              >
+                <MessageCircle className="w-8 h-8 text-pink-400 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">AI Support</h3>
+                <p className="text-gray-600">Get instant answers to your questions from our AI assistant.</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="p-6 bg-white/80 rounded-xl shadow-md"
+              >
+                <Sparkles className="w-8 h-8 text-purple-500 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold mb-2">Personalized Journey</h3>
+                <p className="text-gray-600">Follow a customized path to prepare for your pregnancy journey.</p>
+              </motion.div>
             </div>
           </motion.section>
 
