@@ -1,5 +1,5 @@
 
-import { Stethoscope, Baby, Sparkles, Apple, Heart } from "lucide-react";
+import { Stethoscope, Baby, Sparkles, Apple, Heart, Smile } from "lucide-react";
 import PregnancyCard from "@/components/PregnancyCard";
 import { motion } from "framer-motion";
 
@@ -26,12 +26,14 @@ const categoryDescriptions = {
     'Fertility Awareness': 'Understanding your fertility cycle and optimal conception timing.',
     'Nutrition Guide': 'Recommended nutrients and dietary guidelines for pre-pregnancy.',
     'Lifestyle Changes': 'Important lifestyle modifications to enhance fertility and pregnancy readiness.',
+    'Emotional Well-being': 'Support and guidance for emotional health during your pre-pregnancy journey.',
   },
   sv: {
     'Health Preparation': 'Viktiga hälsoråd och livsstilsförändringar för att förbereda graviditet.',
     'Fertility Awareness': 'Förstå din fertilitetscykel och optimal tid för befruktning.',
     'Nutrition Guide': 'Rekommenderade näringsämnen och kostråd inför graviditet.',
     'Lifestyle Changes': 'Viktiga livsstilsförändringar för att förbättra fertilitet och graviditetsberedskap.',
+    'Emotional Well-being': 'Stöd och vägledning för emotionell hälsa under din pre-graviditetsresa.',
   }
 };
 
@@ -67,6 +69,29 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
       content: guideContent
         .filter(item => item.category === "Health Preparation")
         .map(item => ({ title: item.title, content: item.content })),
+    },
+    {
+      title: "Emotional Well-being",
+      description: categoryDescriptions[currentLanguage]?.['Emotional Well-being'] || categoryDescriptions['en']['Emotional Well-being'],
+      icon: <Smile className="w-6 h-6 text-yellow-400" />,
+      content: [
+        {
+          title: "Managing Expectations",
+          content: "It's normal to feel a mix of excitement and anxiety when planning for pregnancy. Take time to process your emotions."
+        },
+        {
+          title: "Building Support",
+          content: "Connect with your partner, family, or friends about your journey. Consider joining support groups or forums."
+        },
+        {
+          title: "Self-Care Practices",
+          content: "Incorporate stress-reduction activities like meditation, gentle exercise, or journaling into your routine."
+        },
+        {
+          title: "Professional Support",
+          content: "Don't hesitate to speak with a mental health professional about your concerns or anxieties about pregnancy."
+        }
+      ]
     },
     {
       title: "Fertility Awareness",
