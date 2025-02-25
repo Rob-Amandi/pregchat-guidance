@@ -1,5 +1,5 @@
 
-import { Stethoscope, Baby, Sparkles, Apple } from "lucide-react";
+import { Stethoscope, Baby, Sparkles, Apple, Heart } from "lucide-react";
 import PregnancyCard from "@/components/PregnancyCard";
 import { motion } from "framer-motion";
 
@@ -37,6 +37,29 @@ const categoryDescriptions = {
 
 const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
   const categories: Category[] = [
+    {
+      title: "Understanding Fertility",
+      description: "Important statistics and information about fertility and pregnancy journey.",
+      icon: <Heart className="w-6 h-6 text-pink-400" />,
+      content: [
+        {
+          title: "Conception Timeline",
+          content: "About 85% of couples conceive within one year of trying"
+        },
+        {
+          title: "Pregnancy Loss",
+          content: "Up to 1 in 4 known pregnancies may end in miscarriage, most in the first trimester"
+        },
+        {
+          title: "Age and Fertility",
+          content: "Fertility rates naturally decline with age: at 30, monthly conception chance is ~20%"
+        },
+        {
+          title: "Multiple Factors",
+          content: "Many factors influence fertility, including timing, health, and lifestyle"
+        }
+      ]
+    },
     {
       title: "Health Preparation",
       description: categoryDescriptions[currentLanguage]?.['Health Preparation'] || categoryDescriptions['en']['Health Preparation'],
