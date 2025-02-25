@@ -8,7 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import CategoryGrid from "@/components/CategoryGrid";
-import { Sparkles, BookOpen, MessageCircle } from "lucide-react";
+import { Sparkles, BookOpen, MessageCircle, Heart, Info } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -101,6 +102,29 @@ const Index = () => {
                 Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
               </p>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="max-w-4xl mx-auto mt-6 px-4"
+            >
+              <Alert className="bg-white/80 border-pink-100">
+                <Heart className="h-5 w-5 text-pink-400" />
+                <AlertDescription className="text-left">
+                  <p className="font-medium text-gray-900 mb-2">Understanding Fertility and Pregnancy Journey</p>
+                  <ul className="space-y-2 text-gray-600 text-sm">
+                    <li>• About 85% of couples conceive within one year of trying</li>
+                    <li>• Up to 1 in 4 known pregnancies may end in miscarriage, most in the first trimester</li>
+                    <li>• Fertility rates naturally decline with age: at 30, monthly conception chance is ~20%</li>
+                    <li>• Many factors influence fertility, including timing, health, and lifestyle</li>
+                  </ul>
+                  <p className="text-sm text-gray-500 mt-2 italic">
+                    Remember: You're not alone in this journey. Support and resources are available.
+                  </p>
+                </AlertDescription>
+              </Alert>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
               <motion.div
