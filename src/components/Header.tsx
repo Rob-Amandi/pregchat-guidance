@@ -28,7 +28,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
         transition={{ type: "spring", stiffness: 300 }}
       >
         <img 
-          src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+          src="/lovable-uploads/1ddbc9ac-594a-40a0-9455-adc4fd3f8ac4.png" 
           alt="Pre-PregnancyGuide Logo" 
           className="h-12 w-12"
         />
