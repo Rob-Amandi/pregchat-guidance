@@ -1,3 +1,4 @@
+
 import ChatInterface from "@/components/ChatInterface";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -69,7 +70,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF8F0]">
+    <div className="min-h-screen bg-[#FBF2F4]">
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-8">
           <Header 
