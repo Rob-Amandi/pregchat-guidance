@@ -95,7 +95,7 @@ const Auth = () => {
             className="inline-block"
           >
             <img 
-              src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+              src="/lovable-uploads/e3a78cf9-f5c4-4c4f-b094-c792fb5a2a90.png" 
               alt="Pre-PregnancyGuide Logo" 
               className="h-16 w-16 mx-auto mb-4"
             />
