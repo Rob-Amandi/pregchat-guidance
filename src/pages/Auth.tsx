@@ -80,7 +80,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF8F0] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#FBF2F4] flex items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const Auth = () => {
             className="inline-block"
           >
             <img 
-              src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+              src="/lovable-uploads/1ddbc9ac-594a-40a0-9455-adc4fd3f8ac4.png" 
               alt="Pre-PregnancyGuide Logo" 
               className="h-16 w-16 mx-auto mb-4"
             />
