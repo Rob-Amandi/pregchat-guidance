@@ -20,7 +20,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex justify-between items-center bg-[#FBF2F4] px-4 py-2 rounded-lg"
+      className="flex justify-between items-center"
     >
       <motion.div 
         className="flex items-center gap-3"
@@ -28,7 +28,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
         transition={{ type: "spring", stiffness: 300 }}
       >
         <img 
-          src="/lovable-uploads/7d374c9b-8f90-4dfd-9538-9d2288c82118.png" 
+          src="/lovable-uploads/1ddbc9ac-594a-40a0-9455-adc4fd3f8ac4.png" 
           alt="Pre-PregnancyGuide Logo" 
           className="h-12 w-12"
         />
