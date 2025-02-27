@@ -42,12 +42,14 @@ const PregnancyCard = ({ title, description, icon, content, currentLanguage = 'e
       transition={{ duration: 0.5 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      className="h-full"
     >
       <Card 
         className={`
           transform transition-all duration-300 
           bg-white border-[#E6E6FA]
           ${isHovered ? 'shadow-lg border-opacity-50 scale-[1.02]' : 'shadow-sm hover:shadow-md border-opacity-30'}
+          h-full flex flex-col
         `}
       >
         <CardHeader className="flex flex-row items-center gap-4">
@@ -62,11 +64,11 @@ const PregnancyCard = ({ title, description, icon, content, currentLanguage = 'e
             {title}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 flex-1 flex flex-col">
           <p className="text-gray-600 leading-relaxed font-light">{description}</p>
           
           {content && content.length > 0 && (
-            <div className="space-y-4">
+            <div className="space-y-4 mt-auto">
               <Button
                 variant="ghost"
                 className={`
