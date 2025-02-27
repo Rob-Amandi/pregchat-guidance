@@ -46,15 +46,24 @@ const ChatInterface = ({ currentLanguage = 'en' }: ChatInterfaceProps) => {
     setIsLoading(true);
 
     try {
+      console.log("Calling chat-completion function with:", input);
+      
       const { data, error } = await supabase.functions.invoke('chat-completion', {
         body: { message: input }
       });
 
+      console.log("Response data:", data);
+      console.log("Response error:", error);
+
       if (error) throw error;
+
+      if (!data || !data.reply) {
+        throw new Error("Invalid response format");
+      }
 
       const assistantMessage = { content: data.reply, isUser: false };
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error);
       toast({
         variant: "destructive",
