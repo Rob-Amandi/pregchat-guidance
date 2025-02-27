@@ -28,6 +28,7 @@ const categoryTitles = {
     'fertilityAwareness': 'Fertility Awareness',
     'nutritionGuide': 'Nutrition Guide',
     'lifestyleChanges': 'Lifestyle Changes',
+    'birthControl': 'Birth Control Methods'
   },
   sv: {
     'understandingFertility': 'Förstå Fertilitet',
@@ -36,6 +37,7 @@ const categoryTitles = {
     'fertilityAwareness': 'Fertilitetsmedvetenhet',
     'nutritionGuide': 'Näringsguide',
     'lifestyleChanges': 'Livsstilsförändringar',
+    'birthControl': 'Preventivmedel'
   }
 };
 
@@ -46,7 +48,8 @@ const categoryDescriptions = {
     'Nutrition Guide': 'Recommended nutrients and dietary guidelines for pre-pregnancy.',
     'Lifestyle Changes': 'Important lifestyle modifications to enhance fertility and pregnancy readiness.',
     'Emotional Well-being': 'Support and guidance for emotional health during your pre-pregnancy journey.',
-    'Understanding Fertility': 'Important statistics and information about fertility and pregnancy journey.'
+    'Understanding Fertility': 'Important statistics and information about fertility and pregnancy journey.',
+    'Birth Control Methods': 'Information about contraceptives and their effects on future fertility.'
   },
   sv: {
     'Health Preparation': 'Viktiga hälsoråd och livsstilsförändringar för att förbereda graviditet.',
@@ -54,7 +57,8 @@ const categoryDescriptions = {
     'Nutrition Guide': 'Rekommenderade näringsämnen och kostråd inför graviditet.',
     'Lifestyle Changes': 'Viktiga livsstilsförändringar för att förbättra fertilitet och graviditetsberedskap.',
     'Emotional Well-being': 'Stöd och vägledning för emotionell hälsa under din pre-graviditetsresa.',
-    'Understanding Fertility': 'Viktig statistik och information om fertilitet och graviditetsresan.'
+    'Understanding Fertility': 'Viktig statistik och information om fertilitet och graviditetsresan.',
+    'Birth Control Methods': 'Information om preventivmedel och deras påverkan på framtida fertilitet.'
   }
 };
 
@@ -136,6 +140,45 @@ const understandingFertilityContent = {
   ]
 };
 
+const birthControlContent = {
+  en: [
+    {
+      title: "Hormonal Methods",
+      content: "Pills, patches, and rings may delay return to fertility by 1-3 months on average. Side effects can include mood changes, headaches, and changes in menstrual flow."
+    },
+    {
+      title: "Long-Acting Methods",
+      content: "IUDs and implants allow quick return to fertility after removal. Hormonal IUDs may cause spotting, while copper IUDs can cause heavier periods."
+    },
+    {
+      title: "Injectable Contraceptives",
+      content: "Depo-Provera shots may delay fertility return for 6-12 months after the last injection. Side effects can include weight gain and irregular bleeding."
+    },
+    {
+      title: "Preparing for Conception",
+      content: "Consider stopping hormonal contraception 2-3 months before trying to conceive to allow your cycle to regulate and begin prenatal vitamins."
+    }
+  ],
+  sv: [
+    {
+      title: "Hormonella Metoder",
+      content: "P-piller, plåster och ringar kan fördröja återgången till fertilitet med 1-3 månader i genomsnitt. Biverkningar kan inkludera humörförändringar, huvudvärk och förändrat menstruationsflöde."
+    },
+    {
+      title: "Långtidsverkande Metoder",
+      content: "Spiraler och implantat möjliggör snabb återgång till fertilitet efter borttagning. Hormonspiraler kan orsaka spotting, medan kopparspiraler kan orsaka kraftigare menstruationer."
+    },
+    {
+      title: "Injicerbara Preventivmedel",
+      content: "P-sprutor kan fördröja återgången till fertilitet med 6-12 månader efter den sista injektionen. Biverkningar kan inkludera viktökning och oregelbundna blödningar."
+    },
+    {
+      title: "Förberedelse för Graviditet",
+      content: "Överväg att sluta med hormonella preventivmedel 2-3 månader innan du försöker bli gravid för att låta din cykel regleras och börja med vitamintillskott."
+    }
+  ]
+};
+
 const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
   const titles = categoryTitles[currentLanguage as keyof typeof categoryTitles] || categoryTitles.en;
   
@@ -150,6 +193,12 @@ const CategoryGrid = ({ guideContent, currentLanguage }: CategoryGridProps) => {
       description: getLocalizedDescription('Understanding Fertility'),
       icon: <Heart className="w-6 h-6 text-pink-400" />,
       content: (currentLanguage === 'sv' ? understandingFertilityContent.sv : understandingFertilityContent.en)
+    },
+    {
+      title: titles.birthControl,
+      description: getLocalizedDescription('Birth Control Methods'),
+      icon: <Baby className="w-6 h-6 text-purple-500" />,
+      content: (currentLanguage === 'sv' ? birthControlContent.sv : birthControlContent.en)
     },
     {
       title: titles.healthPreparation,
