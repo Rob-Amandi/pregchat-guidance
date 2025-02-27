@@ -14,11 +14,28 @@ interface Message {
   isUser: boolean;
 }
 
-const ChatInterface = () => {
+interface ChatInterfaceProps {
+  currentLanguage?: string;
+}
+
+const ChatInterface = ({ currentLanguage = 'en' }: ChatInterfaceProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+
+  const translations = {
+    en: {
+      placeholder: "Ask your pregnancy-related question...",
+      error: "Failed to get a response. Please try again."
+    },
+    sv: {
+      placeholder: "Ställ din graviditetsrelaterade fråga...",
+      error: "Kunde inte få ett svar. Vänligen försök igen."
+    }
+  };
+
+  const t = translations[currentLanguage as keyof typeof translations];
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -41,8 +58,8 @@ const ChatInterface = () => {
       console.error('Error:', error);
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Failed to get a response. Please try again.",
+        title: currentLanguage === 'sv' ? "Fel" : "Error",
+        description: t.error,
       });
     } finally {
       setIsLoading(false);
@@ -92,7 +109,7 @@ const ChatInterface = () => {
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask your pregnancy-related question..."
+              placeholder={t.placeholder}
               onKeyPress={(e) => e.key === "Enter" && handleSend()}
               className="flex-1"
               disabled={isLoading}

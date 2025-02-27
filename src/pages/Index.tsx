@@ -42,7 +42,9 @@ const Index = () => {
         toast({
           variant: "destructive",
           title: "Error",
-          description: "Failed to load content. Please try again later.",
+          description: currentLanguage === 'sv' 
+            ? "Kunde inte ladda innehåll. Försök igen senare." 
+            : "Failed to load content. Please try again later.",
         });
         return [];
       }
@@ -59,7 +61,7 @@ const Index = () => {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Error",
+        title: currentLanguage === 'sv' ? "Fel" : "Error",
         description: error.message,
       });
     }
@@ -68,6 +70,35 @@ const Index = () => {
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
   };
+
+  const translations = {
+    en: {
+      welcome: "Welcome to Pre-PregnancyGuide",
+      description: "Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.",
+      expertResources: "Expert Resources",
+      expertResourcesDesc: "Access comprehensive guides and articles about pre-pregnancy preparation.",
+      aiSupport: "AI Support",
+      aiSupportDesc: "Get instant answers to your questions from our AI assistant.",
+      personalizedJourney: "Personalized Journey",
+      personalizedJourneyDesc: "Follow a customized path to prepare for your pregnancy journey.",
+      askQuestions: "Ask Your Questions",
+      askQuestionsDesc: "Get personalized answers to your pre-pregnancy questions from our AI assistant."
+    },
+    sv: {
+      welcome: "Välkommen till Pre-PregnancyGuide",
+      description: "Din omfattande guide för graviditetsförberedelser, med expertråd och personligt stöd.",
+      expertResources: "Expertresurser",
+      expertResourcesDesc: "Få tillgång till omfattande guider och artiklar om graviditetsförberedelser.",
+      aiSupport: "AI-stöd",
+      aiSupportDesc: "Få direkta svar på dina frågor från vår AI-assistent.",
+      personalizedJourney: "Personlig Resa",
+      personalizedJourneyDesc: "Följ en anpassad väg för att förbereda din graviditetsresa.",
+      askQuestions: "Ställ Dina Frågor",
+      askQuestionsDesc: "Få personliga svar på dina frågor om graviditetsförberedelse från vår AI-assistent."
+    }
+  };
+
+  const t = translations[currentLanguage as keyof typeof translations];
 
   return (
     <div className="min-h-screen bg-[#FBF2F4]">
@@ -93,12 +124,12 @@ const Index = () => {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text inline-flex items-center gap-2">
-                  Welcome to Pre-PregnancyGuide
+                  {t.welcome}
                   <Sparkles className="inline-block text-pink-400" />
                 </h2>
               </motion.div>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Your comprehensive guide to preparing for pregnancy, with expert advice and personalized support.
+                {t.description}
               </p>
             </div>
 
@@ -108,8 +139,8 @@ const Index = () => {
                 className="p-4 bg-white/80 rounded-xl shadow-md"
               >
                 <BookOpen className="w-8 h-8 text-teal-500 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold mb-2">Expert Resources</h3>
-                <p className="text-gray-600">Access comprehensive guides and articles about pre-pregnancy preparation.</p>
+                <h3 className="text-lg font-semibold mb-2">{t.expertResources}</h3>
+                <p className="text-gray-600">{t.expertResourcesDesc}</p>
               </motion.div>
 
               <motion.div
@@ -117,8 +148,8 @@ const Index = () => {
                 className="p-4 bg-white/80 rounded-xl shadow-md"
               >
                 <MessageCircle className="w-8 h-8 text-pink-400 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold mb-2">AI Support</h3>
-                <p className="text-gray-600">Get instant answers to your questions from our AI assistant.</p>
+                <h3 className="text-lg font-semibold mb-2">{t.aiSupport}</h3>
+                <p className="text-gray-600">{t.aiSupportDesc}</p>
               </motion.div>
 
               <motion.div
@@ -126,8 +157,8 @@ const Index = () => {
                 className="p-4 bg-white/80 rounded-xl shadow-md"
               >
                 <Sparkles className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold mb-2">Personalized Journey</h3>
-                <p className="text-gray-600">Follow a customized path to prepare for your pregnancy journey.</p>
+                <h3 className="text-lg font-semibold mb-2">{t.personalizedJourney}</h3>
+                <p className="text-gray-600">{t.personalizedJourneyDesc}</p>
               </motion.div>
             </div>
           </motion.section>
@@ -156,13 +187,13 @@ const Index = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                Ask Your Questions
+                {t.askQuestions}
               </motion.h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Get personalized answers to your pre-pregnancy questions from our AI assistant.
+                {t.askQuestionsDesc}
               </p>
             </div>
-            <ChatInterface />
+            <ChatInterface currentLanguage={currentLanguage} />
           </motion.section>
         </div>
       </div>

@@ -15,6 +15,19 @@ interface HeaderProps {
 const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderProps) => {
   const navigate = useNavigate();
 
+  const translations = {
+    en: {
+      login: "Login",
+      logout: "Logout"
+    },
+    sv: {
+      login: "Logga in",
+      logout: "Logga ut"
+    }
+  };
+
+  const t = translations[currentLanguage as keyof typeof translations];
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: -20 }}
@@ -53,7 +66,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
             >
               <LogOut className="h-4 w-4 mr-2" />
             </motion.div>
-            Logout
+            {t.logout}
           </Button>
         ) : (
           <Button 
@@ -61,7 +74,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
             onClick={() => navigate("/auth")} 
             className="hover:bg-pink-50 transition-colors duration-300"
           >
-            Login
+            {t.login}
           </Button>
         )}
       </div>

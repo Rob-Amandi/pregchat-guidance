@@ -15,11 +15,25 @@ interface PregnancyCardProps {
   description: string;
   icon: React.ReactNode;
   content?: ContentItem[];
+  currentLanguage?: string;
 }
 
-const PregnancyCard = ({ title, description, icon, content }: PregnancyCardProps) => {
+const PregnancyCard = ({ title, description, icon, content, currentLanguage = 'en' }: PregnancyCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const translations = {
+    en: {
+      showMore: "Show More",
+      showLess: "Show Less"
+    },
+    sv: {
+      showMore: "Visa Mer",
+      showLess: "Visa Mindre"
+    }
+  };
+
+  const t = translations[currentLanguage as keyof typeof translations];
 
   return (
     <motion.div
@@ -63,7 +77,7 @@ const PregnancyCard = ({ title, description, icon, content }: PregnancyCardProps
                 onClick={() => setIsExpanded(!isExpanded)}
               >
                 <span>
-                  {isExpanded ? "Show Less" : "Show More"}
+                  {isExpanded ? t.showLess : t.showMore}
                 </span>
                 <motion.div
                   animate={{ rotate: isExpanded ? 180 : 0 }}
