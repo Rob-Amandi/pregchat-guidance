@@ -25,7 +25,18 @@ const Auth = () => {
         throw new Error("Please fill in all fields");
       }
       
-      const { error } = await supabase.auth.signUp({
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      // Validate password strength
+      if (password.length < 6) {
+        throw new Error("Password must be at least 6 characters long");
+      }
+      
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -37,10 +48,29 @@ const Auth = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "Success!",
-        description: "Check your email for the confirmation link.",
-      });
+      if (data?.user) {
+        toast({
+          title: "Account created!",
+          description: "Check your email for the confirmation link.",
+        });
+        
+        // Check if email confirmation is required
+        if (data.user.identities && data.user.identities.length === 0) {
+          toast({
+            description: "Please check your email to confirm your account before signing in.",
+          });
+        } else {
+          // Auto sign-in if email confirmation is not required
+          const { error: signInError } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+          });
+          
+          if (!signInError) {
+            navigate("/");
+          }
+        }
+      }
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -60,7 +90,7 @@ const Auth = () => {
         throw new Error("Please fill in all fields");
       }
 
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -161,6 +191,7 @@ const Auth = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="bg-white/50"
                   />
+                  <p className="text-xs text-gray-500">Password must be at least 6 characters long</p>
                   <Button type="submit" className="w-full bg-gradient-to-r from-teal-500 to-pink-400 text-white" disabled={loading}>
                     {loading ? "Signing up..." : "Sign Up"}
                   </Button>
