@@ -1,5 +1,3 @@
-
-import { Stethoscope, Baby, Sparkles, Apple, Heart, Smile } from "lucide-react";
 import { ReactNode } from "react";
 
 export interface ContentItem {
