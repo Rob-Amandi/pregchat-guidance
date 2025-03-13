@@ -1,3 +1,4 @@
+
 import { ReactNode } from "react";
 
 export interface ContentItem {
@@ -9,125 +10,78 @@ export interface Category {
   title: string;
   description: string;
   icon: ReactNode;
-  content?: ContentItem[];
+  content: ContentItem[];
 }
 
 export const categoryTitles = {
   en: {
-    'understandingFertility': 'Understanding Fertility',
-    'healthPreparation': 'Health Preparation',
-    'emotionalWellbeing': 'Emotional Well-being',
-    'fertilityAwareness': 'Fertility Awareness',
-    'nutritionGuide': 'Nutrition Guide',
-    'lifestyleChanges': 'Lifestyle Changes',
-    'birthControl': 'Birth Control Methods'
+    understandingFertility: "Understanding Fertility",
+    birthControl: "Birth Control Methods",
+    healthPreparation: "Health Preparation",
+    emotionalWellbeing: "Emotional Well-being",
+    fertilityAwareness: "Fertility Awareness",
+    nutritionGuide: "Nutrition Guide",
+    lifestyleChanges: "Lifestyle Changes"
   },
   sv: {
-    'understandingFertility': 'Förstå Fertilitet',
-    'healthPreparation': 'Hälsoförberedelser',
-    'emotionalWellbeing': 'Emotionellt Välbefinnande',
-    'fertilityAwareness': 'Fertilitetsmedvetenhet',
-    'nutritionGuide': 'Näringsguide',
-    'lifestyleChanges': 'Livsstilsförändringar',
-    'birthControl': 'Preventivmedel'
+    understandingFertility: "Förstå Fertilitet",
+    birthControl: "Preventivmetoder",
+    healthPreparation: "Hälsoförberedelse",
+    emotionalWellbeing: "Emotionellt Välbefinnande",
+    fertilityAwareness: "Fertilitetsmedvetenhet",
+    nutritionGuide: "Näringsguide",
+    lifestyleChanges: "Livsstilsförändringar"
   }
 };
 
 export const categoryDescriptions = {
   en: {
-    'Health Preparation': 'Essential health tips and lifestyle changes to prepare for pregnancy.',
-    'Fertility Awareness': 'Understanding your fertility cycle and optimal conception timing.',
-    'Nutrition Guide': 'Recommended nutrients and dietary guidelines for pre-pregnancy.',
-    'Lifestyle Changes': 'Important lifestyle modifications to enhance fertility and pregnancy readiness.',
-    'Emotional Well-being': 'Support and guidance for emotional health during your pre-pregnancy journey.',
-    'Understanding Fertility': 'Important statistics and information about fertility and pregnancy journey.',
-    'Birth Control Methods': 'Information about contraceptives and their effects on future fertility.'
+    "Understanding Fertility": "Learn about the menstrual cycle and fertility window",
+    "Birth Control Methods": "Compare different contraception options",
+    "Health Preparation": "Prepare your body for a healthy pregnancy",
+    "Emotional Well-being": "Managing emotions and mental health",
+    "Fertility Awareness": "Track your fertility signs effectively",
+    "Nutrition Guide": "Essential nutrients for fertility and pregnancy",
+    "Lifestyle Changes": "Habits to adopt for optimal fertility"
   },
   sv: {
-    'Health Preparation': 'Viktiga hälsoråd och livsstilsförändringar för att förbereda graviditet.',
-    'Fertility Awareness': 'Förstå din fertilitetscykel och optimal tid för befruktning.',
-    'Nutrition Guide': 'Rekommenderade näringsämnen och kostråd inför graviditet.',
-    'Lifestyle Changes': 'Viktiga livsstilsförändringar för att förbättra fertilitet och graviditetsberedskap.',
-    'Emotional Well-being': 'Stöd och vägledning för emotionell hälsa under din pre-graviditetsresa.',
-    'Understanding Fertility': 'Viktig statistik och information om fertilitet och graviditetsresan.',
-    'Birth Control Methods': 'Information om preventivmedel och deras påverkan på framtida fertilitet.'
+    "Understanding Fertility": "Lär dig om menstruationscykeln och fertilitetsfönstret",
+    "Birth Control Methods": "Jämför olika preventivmedelsalternativ",
+    "Health Preparation": "Förbered din kropp för en hälsosam graviditet",
+    "Emotional Well-being": "Hantera känslor och mental hälsa",
+    "Fertility Awareness": "Spåra dina fertilitetstecken effektivt",
+    "Nutrition Guide": "Essentiella näringsämnen för fertilitet och graviditet",
+    "Lifestyle Changes": "Vanor att anta för optimal fertilitet"
   }
-};
-
-export const emotionalWellbeingContent = {
-  en: [
-    {
-      title: "Managing Expectations",
-      content: "It's normal to feel a mix of excitement and anxiety when planning for pregnancy. Take time to process your emotions."
-    },
-    {
-      title: "Building Support",
-      content: "Connect with your partner, family, or friends about your journey. Consider joining support groups or forums."
-    },
-    {
-      title: "Self-Care Practices",
-      content: "Incorporate stress-reduction activities like meditation, gentle exercise, or journaling into your routine."
-    },
-    {
-      title: "Professional Support",
-      content: "Don't hesitate to speak with a mental health professional about your concerns or anxieties about pregnancy."
-    }
-  ],
-  sv: [
-    {
-      title: "Hantera Förväntningar",
-      content: "Det är normalt att känna en blandning av spänning och ångest när du planerar för graviditet. Ta tid att bearbeta dina känslor."
-    },
-    {
-      title: "Bygga Stöd",
-      content: "Prata med din partner, familj eller vänner om din resa. Överväg att gå med i stödgrupper eller forum."
-    },
-    {
-      title: "Egenvårdsmetoder",
-      content: "Inkludera stressreducerande aktiviteter som meditation, skonsam träning eller dagboksskrivande i din rutin."
-    },
-    {
-      title: "Professionellt Stöd",
-      content: "Tveka inte att prata med en psykolog om dina funderingar eller oro kring graviditet."
-    }
-  ]
 };
 
 export const understandingFertilityContent = {
   en: [
     {
-      title: "Conception Timeline",
-      content: "About 85% of couples conceive within one year of trying"
+      title: "The Menstrual Cycle",
+      content: "The menstrual cycle is typically 28 days but can range from 21 to 35 days. It consists of the follicular phase, ovulation, and luteal phase. Understanding your cycle helps identify your most fertile days."
     },
     {
-      title: "Pregnancy Loss",
-      content: "Up to 1 in 4 known pregnancies may end in miscarriage, most in the first trimester"
+      title: "Ovulation",
+      content: "Ovulation usually occurs 14 days before your next period. During this time, an egg is released from the ovary and can be fertilized for about 24 hours."
     },
     {
-      title: "Age and Fertility",
-      content: "Fertility rates naturally decline with age: at 30, monthly conception chance is ~20%"
-    },
-    {
-      title: "Multiple Factors",
-      content: "Many factors influence fertility, including timing, health, and lifestyle"
+      title: "Fertile Window",
+      content: "The fertile window spans about 6 days - the 5 days before ovulation and the day of ovulation. Sperm can survive in the female reproductive tract for up to 5 days."
     }
   ],
   sv: [
     {
-      title: "Konceptionstidslinje",
-      content: "Ungefär 85% av par blir gravida inom ett år av försök"
+      title: "Menstruationscykeln",
+      content: "Menstruationscykeln är vanligtvis 28 dagar men kan variera från 21 till 35 dagar. Den består av follikelfasen, ägglossningen och lutealfasen. Att förstå din cykel hjälper dig att identifiera dina mest fertila dagar."
     },
     {
-      title: "Graviditetsförlust",
-      content: "Upp till 1 av 4 kända graviditeter kan sluta i missfall, de flesta under första trimestern"
+      title: "Ägglossning",
+      content: "Ägglossning sker vanligtvis 14 dagar före din nästa menstruation. Under denna tid släpps ett ägg från äggstocken och kan befruktas i cirka 24 timmar."
     },
     {
-      title: "Ålder och Fertilitet",
-      content: "Fertiliteten minskar naturligt med åldern: vid 30 års ålder är den månatliga konceptionschansen ~20%"
-    },
-    {
-      title: "Flera Faktorer",
-      content: "Många faktorer påverkar fertiliteten, inklusive timing, hälsa och livsstil"
+      title: "Fertilt Fönster",
+      content: "Det fertila fönstret sträcker sig över cirka 6 dagar - de 5 dagarna före ägglossning och dagen för ägglossning. Spermier kan överleva i kvinnans reproduktionsorgan i upp till 5 dagar."
     }
   ]
 };
@@ -136,37 +90,60 @@ export const birthControlContent = {
   en: [
     {
       title: "Hormonal Methods",
-      content: "Pills, patches, and rings may delay return to fertility by 1-3 months on average. Side effects can include mood changes, headaches, and changes in menstrual flow."
+      content: "Includes pills, patches, rings, and injections. They work by preventing ovulation and thickening cervical mucus. Effectiveness: 91-99% with perfect use."
     },
     {
-      title: "Long-Acting Methods",
-      content: "IUDs and implants allow quick return to fertility after removal. Hormonal IUDs may cause spotting, while copper IUDs can cause heavier periods."
+      title: "Long-Acting Reversible Contraceptives",
+      content: "IUDs and implants provide 3-10 years of protection. They are over 99% effective and require minimal maintenance."
     },
     {
-      title: "Injectable Contraceptives",
-      content: "Depo-Provera shots may delay fertility return for 6-12 months after the last injection. Side effects can include weight gain and irregular bleeding."
-    },
-    {
-      title: "Preparing for Conception",
-      content: "Consider stopping hormonal contraception 2-3 months before trying to conceive to allow your cycle to regulate and begin prenatal vitamins."
+      title: "Barrier Methods",
+      content: "Condoms, diaphragms, and cervical caps physically block sperm. Male condoms are 85-98% effective and also protect against STIs."
     }
   ],
   sv: [
     {
       title: "Hormonella Metoder",
-      content: "P-piller, plåster och ringar kan fördröja återgången till fertilitet med 1-3 månader i genomsnitt. Biverkningar kan inkludera humörförändringar, huvudvärk och förändrat menstruationsflöde."
+      content: "Inkluderar p-piller, p-plåster, p-ring och p-spruta. De fungerar genom att förhindra ägglossning och förtjocka slemhinnan i livmoderhalsen. Effektivitet: 91-99% vid perfekt användning."
     },
     {
-      title: "Långtidsverkande Metoder",
-      content: "Spiraler och implantat möjliggör snabb återgång till fertilitet efter borttagning. Hormonspiraler kan orsaka spotting, medan kopparspiraler kan orsaka kraftigare menstruationer."
+      title: "Långtidsverkande Reversibla Preventivmedel",
+      content: "Spiraler och p-stavar ger 3-10 års skydd. De är över 99% effektiva och kräver minimalt underhåll."
     },
     {
-      title: "Injicerbara Preventivmedel",
-      content: "P-sprutor kan fördröja återgången till fertilitet med 6-12 månader efter den sista injektionen. Biverkningar kan inkludera viktökning och oregelbundna blödningar."
+      title: "Barriärmetoder",
+      content: "Kondomer, pessar och cervikala skydd blockerar spermier fysiskt. Manliga kondomer är 85-98% effektiva och skyddar även mot könssjukdomar."
+    }
+  ]
+};
+
+export const emotionalWellbeingContent = {
+  en: [
+    {
+      title: "Managing Stress",
+      content: "High stress levels can affect fertility by disrupting hormone balance. Regular exercise, adequate sleep, and relaxation techniques can help manage stress."
     },
     {
-      title: "Förberedelse för Graviditet",
-      content: "Överväg att sluta med hormonella preventivmedel 2-3 månader innan du försöker bli gravid för att låta din cykel regleras och börja med vitamintillskott."
+      title: "Mental Health Support",
+      content: "Seeking therapy or counseling can be beneficial if you're experiencing anxiety or depression related to fertility concerns."
+    },
+    {
+      title: "Building a Support Network",
+      content: "Connect with others who are on similar journeys. Support groups, online forums, and community events can provide emotional support and practical advice."
+    }
+  ],
+  sv: [
+    {
+      title: "Hantera Stress",
+      content: "Höga stressnivåer kan påverka fertiliteten genom att störa hormonbalansen. Regelbunden motion, tillräcklig sömn och avslappningstekniker kan hjälpa till att hantera stress."
+    },
+    {
+      title: "Stöd för Mental Hälsa",
+      content: "Att söka terapi eller rådgivning kan vara fördelaktigt om du upplever ångest eller depression relaterad till fertilitetsproblem."
+    },
+    {
+      title: "Bygga ett Stödnätverk",
+      content: "Anslut till andra som är på liknande resor. Stödgrupper, onlineforum och gemenskapsevenemang kan ge emotionellt stöd och praktiska råd."
     }
   ]
 };

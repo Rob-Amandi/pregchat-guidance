@@ -8,6 +8,7 @@ import {
   birthControlContent,
   Category
 } from './CategoryData';
+import React from 'react';
 
 export const getCategoryData = (
   currentLanguage: string,
