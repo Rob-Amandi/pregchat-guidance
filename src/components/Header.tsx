@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface HeaderProps {
   user: any;
@@ -14,6 +15,7 @@ interface HeaderProps {
 
 const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderProps) => {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const translations = {
     en: {
@@ -33,7 +35,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex justify-between items-center"
+      className="flex flex-col sm:flex-row justify-between items-center gap-4"
     >
       <motion.div 
         className="flex items-center gap-3"
@@ -45,7 +47,7 @@ const Header = ({ user, currentLanguage, onLanguageChange, onLogout }: HeaderPro
           alt="Pre-PregnancyGuide Logo" 
           className="h-12 w-12"
         />
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
+        <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-400 text-transparent bg-clip-text">
           Pre-PregnancyGuide
         </h1>
       </motion.div>
