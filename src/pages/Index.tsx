@@ -1,4 +1,3 @@
-
 import ChatInterface from "@/components/ChatInterface";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -170,8 +169,8 @@ const Index = () => {
             className="relative py-6"
           >
             <CategoryGrid 
-              guideContent={guideContent}
               currentLanguage={currentLanguage}
+              guideContent={guideContent}
             />
           </motion.div>
 
