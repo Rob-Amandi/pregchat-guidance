@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 
 export interface ContentItem {
@@ -21,7 +20,8 @@ export const categoryTitles = {
     emotionalWellbeing: "Emotional Well-being",
     fertilityAwareness: "Fertility Awareness",
     nutritionGuide: "Nutrition Guide",
-    lifestyleChanges: "Lifestyle Changes"
+    lifestyleChanges: "Lifestyle Changes",
+    griefAndSupport: "Grief & Support"
   },
   sv: {
     understandingFertility: "Förstå Fertilitet",
@@ -30,7 +30,8 @@ export const categoryTitles = {
     emotionalWellbeing: "Emotionellt Välbefinnande",
     fertilityAwareness: "Fertilitetsmedvetenhet",
     nutritionGuide: "Näringsguide",
-    lifestyleChanges: "Livsstilsförändringar"
+    lifestyleChanges: "Livsstilsförändringar",
+    griefAndSupport: "Sorg & Stöd"
   }
 };
 
@@ -42,7 +43,8 @@ export const categoryDescriptions = {
     "Emotional Well-being": "Managing emotions and mental health",
     "Fertility Awareness": "Track your fertility signs effectively",
     "Nutrition Guide": "Essential nutrients for fertility and pregnancy",
-    "Lifestyle Changes": "Habits to adopt for optimal fertility"
+    "Lifestyle Changes": "Habits to adopt for optimal fertility",
+    "Grief & Support": "Resources for coping with pregnancy loss"
   },
   sv: {
     "Understanding Fertility": "Lär dig om menstruationscykeln och fertilitetsfönstret",
@@ -51,7 +53,8 @@ export const categoryDescriptions = {
     "Emotional Well-being": "Hantera känslor och mental hälsa",
     "Fertility Awareness": "Spåra dina fertilitetstecken effektivt",
     "Nutrition Guide": "Essentiella näringsämnen för fertilitet och graviditet",
-    "Lifestyle Changes": "Vanor att anta för optimal fertilitet"
+    "Lifestyle Changes": "Vanor att anta för optimal fertilitet",
+    "Grief & Support": "Resurser för att hantera graviditetsförlust"
   }
 };
 
@@ -144,6 +147,45 @@ export const emotionalWellbeingContent = {
     {
       title: "Bygga ett Stödnätverk",
       content: "Anslut till andra som är på liknande resor. Stödgrupper, onlineforum och gemenskapsevenemang kan ge emotionellt stöd och praktiska råd."
+    }
+  ]
+};
+
+export const griefAndSupportContent = {
+  en: [
+    {
+      title: "Understanding Miscarriage",
+      content: "Miscarriage is a common but often unexpected pregnancy loss that occurs in about 10-20% of known pregnancies. Most happen within the first trimester and are not caused by anything the pregnant person did or didn't do."
+    },
+    {
+      title: "Coping Strategies",
+      content: "Allow yourself to grieve. There's no right way to feel after a pregnancy loss. Find support through counseling, support groups, or talking with trusted friends and family. Practice self-care and give yourself time to heal."
+    },
+    {
+      title: "Professional Support",
+      content: "Seek help from healthcare providers who specialize in pregnancy loss. They can provide medical guidance, emotional support, and referrals to mental health professionals with expertise in grief and loss."
+    },
+    {
+      title: "Resources and Communities",
+      content: "Organizations like Share Pregnancy & Infant Loss Support, Resolve, and March of Dimes offer resources, online communities, and support groups specifically for those experiencing pregnancy loss."
+    }
+  ],
+  sv: [
+    {
+      title: "Förstå Missfall",
+      content: "Missfall är en vanlig men ofta oväntad graviditetsförlust som inträffar i cirka 10-20% av kända graviditeter. De flesta sker inom den första trimestern och orsakas inte av något den gravida personen gjorde eller inte gjorde."
+    },
+    {
+      title: "Hanteringsstrategier",
+      content: "Tillåt dig själv att sörja. Det finns inget rätt sätt att känna efter en graviditetsförlust. Hitta stöd genom rådgivning, stödgrupper eller genom att prata med betrodda vänner och familj. Praktisera egenvård och ge dig själv tid att läka."
+    },
+    {
+      title: "Professionellt Stöd",
+      content: "Sök hjälp från vårdgivare som specialiserar sig på graviditetsförlust. De kan ge medicinsk vägledning, emotionellt stöd och hänvisningar till psykiska hälsoexperter med expertis inom sorg och förlust."
+    },
+    {
+      title: "Resurser och Gemenskaper",
+      content: "Organisationer som SFOG (Svensk Förening för Obstetrik och Gynekologi), Spädbarnsfonden och 1177 Vårdguiden erbjuder resurser, onlinegemenskaper och stödgrupper specifikt för dem som upplever graviditetsförlust."
     }
   ]
 };

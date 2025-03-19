@@ -1,11 +1,12 @@
 
-import { Heart, Baby, Stethoscope, Smile, Sparkles, Apple } from "lucide-react";
+import { Heart, Baby, Stethoscope, Smile, Sparkles, Apple, BookHeart } from "lucide-react";
 import { 
   categoryTitles, 
   categoryDescriptions, 
   emotionalWellbeingContent, 
   understandingFertilityContent, 
   birthControlContent,
+  griefAndSupportContent,
   Category
 } from './CategoryData';
 import React from 'react';
@@ -71,6 +72,12 @@ export const getCategoryData = (
       content: guideContent
         .filter(item => item.category === "Lifestyle Changes")
         .map(item => ({ title: item.title, content: item.content })),
+    },
+    {
+      title: titles.griefAndSupport,
+      description: getLocalizedDescription('Grief & Support'),
+      icon: <BookHeart className="w-6 h-6 text-red-400" />,
+      content: (currentLanguage === 'sv' ? griefAndSupportContent.sv : griefAndSupportContent.en)
     },
   ];
 };
